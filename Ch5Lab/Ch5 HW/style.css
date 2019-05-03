@@ -1,0 +1,110 @@
+/* CREATED BY CHRIS LINDBERG ON 5/3/19 */
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	width: 100%;
+	margin: 0 auto;
+	background:  #ccc;
+}
+
+main,
+header,
+footer{
+	width: 80%;
+	display: flex;
+	padding: 1em;
+	margin: 1em;
+	
+}
+
+.comment-input {
+	flex: 1 1 360px;
+}
+
+.comments {
+	flex: 1 1 360px;
+}
+
+.comments p {
+	padding-left: 0.5em;
+}
+
+.comments p:nth-child(even) {
+	background: lavender;
+}
+
+.comments p:nth-child(odd) {
+	background: green;
+}
+
+div.photos {
+	clear: both;
+	width: 100%;
+	margin: auto;
+}
+	
+
+#nextButton{
+	clear: both;
+				box-shadow: 0px 0px 15px inset;
+		border: 1px solid black;
+		color: blue;
+		height: 40px;
+		vertical-align: middle;
+		text-align: center;
+		  padding: 10px;
+}
+
+#previousButton{
+	clear: both;
+				box-shadow: 0px 0px 15px inset;
+		border: 1px solid black;
+		color: blue;
+		height: 40px;
+		vertical-align: middle;
+		text-align: center;
+		  padding: 10px;
+}
+
+#newsearchButton{
+
+	  margin: auto;
+color: blue;
+  box-shadow: 0px 0px 15px inset;
+		border: 1px solid black;
+  padding: 10px;
+
+	height: auto;
+}
+
+
+img{
+			box-shadow: 0px 0px 15px inset;
+		border: 1px solid black;
+		color: blue;
+		height: 40px;
+		vertical-align: middle;
+		text-align: center;
+	width: 100%;
+	height: auto;
+	max-width: 1000px;
+}
+
+h1{
+			box-shadow: 0px 0px 15px inset;
+		border: 1px solid black;
+		color: blue;
+		height: 40px;
+		vertical-align: middle;
+		text-align: center;
+	width: 100%;
+	height: auto;
+}
+
+
+
