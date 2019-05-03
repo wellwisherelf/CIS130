@@ -1,0 +1,14 @@
+json img url from the images
+grab the images
+put them on the page
+wrap them in a container
+
+figure out how to hide all of them 
+
+	
+
+then figure out how to make them show
+	make a loop, or have IDs on the image
+	have a timer to make every image show every couple seconds
+
+get the TODO list working, with a databas
