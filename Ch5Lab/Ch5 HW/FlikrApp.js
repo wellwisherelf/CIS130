@@ -42,7 +42,7 @@ var main = function() {
 		body.appendChild(button1);
 
 
-//num of items is the number of items in the json array
+//numOfItems is the number of items in the json array returned to us by flikr
 var numOfItems =flikrResponse.items.length;
 
 //x is our main counting variable which goes through the json member array
