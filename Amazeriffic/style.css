@@ -19,13 +19,19 @@ header {
   border-bottom: 1px solid #ddd;
 }
 
+h3{
+	
+	margin: 10px;
+	padding: .25em;
+}
+
 /* MAIN LOGO */
 h1 {
   font-family: 'Ubuntu', sans-serif;
   font-style: italic;
   font-size: 3em;
   color: #b33;
-  float: left;
+ 
   width: 570px;
 }
 
@@ -37,7 +43,7 @@ h5 {
 }
 
 header nav {
-  float: right;
+  float: left;
   width: 285px;
 }
 
@@ -133,4 +139,17 @@ footer .sitemap .left {
 
 footer .sitemap .right {
     float: right;
+}
+
+.container{
+		display: block;
+		border: 1px solid grey;
+		border-radius: 25px;
+		background: rgb(255, 255, 230);
+		background-color: #ffffb3);
+		margin: 10px;
+}
+
+#faq{
+	margin-left: 25px;
 }
