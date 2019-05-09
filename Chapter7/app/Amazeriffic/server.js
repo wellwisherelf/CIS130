@@ -1,13 +1,12 @@
+//CAL
 var express = require("express"),
     http = require("http"),
 	mongoose = require( "mongoose"),
     app = express();
 
-
 app.use(express.static(__dirname + "/client"));		
 	//parse incoming json
 app.use( express.urlencoded() );
-
 	//connect to the amazeriffic data store in mongodb.  if its not there, it will create it
 mongoose.connect('mongodb://localhost/amazeriffic');
 

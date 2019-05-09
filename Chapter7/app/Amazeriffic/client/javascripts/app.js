@@ -1,49 +1,12 @@
 var main = function (toDoObjects) {
     "use strict";
-	
-	var toDos = toDoObjects.map( function( toDo ) {
-		
-		return toDo.description; 	
-	});
-		
+    console.log("SANITY CHECK");
+    var toDos = toDoObjects.map(function (toDo) {
+          // we'll just return the description
+          // of this toDoObject
+          return toDo.description;
+    });
 
-		
-			
-		
-	var organizedByTag = function( toDoObjects ) 
-	{
-		// create empty tags array
-		var tags = []; 
-		
-		toDoObjects.forEach( function( toDo ) 
-		{
-			toDo.tags.forEach( function(tag) 
-			{
-				if ( tags.indexOf(tag) === -1 ) 
-				{
-					tags.push(tag);
-				}
-			});
-		});
-		
-		var tagObjects = tags.map( function ( tag ) 
-		{
-			var toDosWithTag = [];
-			toDoObjects.forEach ( function( toDo ) 
-			{
-				if ( toDo.tags.indexOf(tag) !== -1 )
-				{
-					toDosWithTag.push( toDo.description );
-				}
-			});
-		
-			return { "name" : tag, "toDos": toDosWithTag };
-		});	
-		console.log( tagObjects ); 
-		return ( tagObjects ); 
-
-	};	
-	
     $(".tabs a span").toArray().forEach(function (element) {
         var $element = $(element);
 
@@ -70,34 +33,75 @@ var main = function (toDoObjects) {
                 });
 
             } else if ($element.parent().is(":nth-child(3)")) {
-            
-                // New Tab we will construct.
-				var organizedByTags = organizedByTag( toDoObjects );
-				organizedByTags.forEach( function( tag ) 
-				{
-					var $tagName = $('<h3>').text( tag.name ), 
-						$content = $('<ul>');
-						
-					tag.toDos.forEach( function( toDo ) 
-					{
-						var description = $('<li>').text( toDo );
-						$content.append( description );
-					});
-					
-					$( 'main .content').append( $tagName );
-					$( 'main .content').append( $content ); 
-					
-				});
+                var tags = [];
+
+                toDoObjects.forEach(function (toDo) {
+                    toDo.tags.forEach(function (tag) {
+                        if (tags.indexOf(tag) === -1) {
+                            tags.push(tag);
+                        }
+                    });
+                });
+                console.log(tags);
+
+                var tagObjects = tags.map(function (tag) {
+                    var toDosWithTag = [];
+
+                    toDoObjects.forEach(function (toDo) {
+                        if (toDo.tags.indexOf(tag) !== -1) {
+                            toDosWithTag.push(toDo.description);
+                        }
+                    });
+
+                    return { "name": tag, "toDos": toDosWithTag };
+                });
+
+                console.log(tagObjects);
+
+                tagObjects.forEach(function (tag) {
+                    var $tagName = $("<h3>").text(tag.name),
+                        $content = $("<ul>");
+
+
+                    tag.toDos.forEach(function (description) {
+                        var $li = $("<li>").text(description);
+                        $content.append($li);
+                    });
+
+                    $("main .content").append($tagName);
+                    $("main .content").append($content);
+                });
 
             } else if ($element.parent().is(":nth-child(4)")) {
                 var $input = $("<input>").addClass("description"),
                     $inputLabel = $("<p>").text("Description: "),
                     $tagInput = $("<input>").addClass("tags"),
                     $tagLabel = $("<p>").text("Tags: "),
-                    $button = $("<button>").text("+");
+                    $button = $("<span>").text("+");
 
+                $button.on("click", function () {
 					
 					
+                    var description = $input.val(),
+                        tags = $tagInput.val().split(","),
+                        newToDo = {"description":description, "tags":tags};
+
+                    $.post("todos", newToDo, function (result) {
+                        console.log(result);
+
+                        //toDoObjects.push(newToDo);
+                        toDoObjects = result;
+
+                        // update toDos
+                        toDos = toDoObjects.map(function (toDo) {
+                            return toDo.description;
+                        });
+
+                        $input.val("");
+                        $tagInput.val("");
+                    });
+                });
+
                 $content = $("<div>").append($inputLabel)
                                      .append($input)
                                      .append($tagLabel)

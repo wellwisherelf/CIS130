@@ -1,9 +1,8 @@
 {
-	"name": "Amazeriffic",
-	"description": "a todo list app",
-	"version": "0.0.1",
-	"dependencies": {
-		"express": "^3.21.2",
-		"mongoose": "3.6.x"
-	}
+    "name": "amazeriffic",
+    "description": "The best ToDo list app in the history of the world",
+    "version": "0.0.1",
+    "dependencies": {
+	"mongoose": "3.6.x"
+    }
 }
